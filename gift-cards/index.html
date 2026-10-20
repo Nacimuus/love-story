@@ -12,7 +12,7 @@
   </script>
   <meta name="robots" content="noindex, nofollow">
   <title>Gift Cards · The Journey of Love</title>
-  <meta name="description" content="Discover where a physical Journey of Love gift card can be enjoyed. Find places near you or browse demo locations by city.">
+  <meta name="description" content="Discover where a physical Journey of Love gift card can be enjoyed. Browse cities and explore locations on the map.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -58,7 +58,7 @@
     .card-brand{font:500 23px 'Cormorant Garamond',serif;letter-spacing:.07em;position:relative;z-index:1}
     .card-mid{font:500 clamp(33px,4vw,48px)/1.03 'Cormorant Garamond',serif;position:relative;z-index:1}
     .card-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;position:relative;z-index:1}
-    .demo-stamp{background:#f2dcaa1c;padding:5px 8px;border:1px solid #f2dcaa64;border-radius:4px;white-space:nowrap}
+    .card-seal{background:#f2dcaa1c;padding:5px 8px;border:1px solid #f2dcaa64;border-radius:4px;white-space:nowrap}
     .card-caption{text-align:center;font-size:11px;color:#d5b7bf;margin:26px 0 0}
     .section{padding:79px 0}
     .section-kicker{color:#956d49;font-size:11px;text-transform:uppercase;letter-spacing:.23em;font-weight:700;margin:0 0 10px}
@@ -89,7 +89,10 @@
     .venue{padding:13px 14px;background:#f8f1e8;border:1px solid #ebded1;border-radius:8px;text-align:left;color:inherit;width:100%}
     .venue strong{display:block;font-size:13px}
     .venue span{font-size:11px;color:#766771}
-    .venue .demo{float:right;font-size:9px;color:#965b43;font-weight:800;letter-spacing:.05em}
+.empty-venues{padding:27px 18px;text-align:center;border:1px dashed #d5bd9d;background:#fbf6ef;border-radius:10px;color:#665158}
+    .empty-venues .empty-symbol{display:grid;place-items:center;width:44px;height:44px;margin:0 auto 13px;border-radius:50%;background:#f0e4d5;color:#815a46;font-size:24px}
+    .empty-venues strong{display:block;font-size:14px;margin-bottom:8px;color:#3a2933}
+    .empty-venues p{margin:0;font-size:12px;line-height:1.6}
     .privacy{margin-top:16px;padding:15px 17px;background:#f8f3ed;border-left:3px solid #b38e62;border-radius:5px;color:#6a5559;font-size:12px;line-height:1.7}
     .status{margin:11px 0 0;min-height:19px;font-size:12px;color:#634f52}
     .refusal{margin-top:40px;padding:25px 28px;border:1px solid #dcd0c5;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:space-between;gap:22px}
@@ -98,14 +101,27 @@
     footer{background:#2b1523;color:#f3e5df;padding:31px 0}
     footer .wrap{display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap}
     footer p{font-size:11px;color:#c3aaa9;margin:0}
-    dialog{max-width:470px;width:calc(100% - 40px);border:0;border-radius:15px;padding:30px;box-shadow:0 25px 100px #28111d77;background:#fffaf4;color:#362832}
-    dialog::backdrop{background:#1b0e18b8}
-    dialog h3{font-size:33px;line-height:1.08;margin:0 0 12px}
-    dialog p{font-size:14px;line-height:1.65;color:#675a5f}
-    .notice{border:1px solid #d9bf95;background:#fff8e6;padding:12px;border-radius:7px;font-size:12px;color:#6d4d29;margin:18px 0}
+    dialog.decline-modal{max-width:490px;width:calc(100% - 32px);max-height:calc(100dvh - 32px);overflow:auto;border:1px solid #d5b88a;border-radius:20px;padding:0;box-shadow:0 35px 110px #170c1699;background:#fffaf4;color:#362832}
+    dialog::backdrop{background:rgba(22,8,19,.79);backdrop-filter:blur(7px)}
+    .modal-inner{position:relative;padding:43px 39px 32px;text-align:center}
+    .modal-close{position:absolute;top:13px;right:15px;width:37px;height:37px;display:grid;place-items:center;background:transparent;border:0;border-radius:50%;color:#78636a;font-size:26px;line-height:1}
+    .modal-close:hover{background:#f3e7dd}
+    .modal-icon{margin:0 auto 19px;width:64px;height:64px;border:1px solid #d7b88a;background:#f8eddd;display:grid;place-items:center;border-radius:50%;font:600 33px/1 'Cormorant Garamond',serif;color:#8e6542}
+    .modal-eyebrow{text-transform:uppercase;font-size:10px;letter-spacing:.23em;font-weight:700;color:#a07650;margin:0 0 11px}
+    dialog.decline-modal h3{font-size:clamp(35px,5vw,43px);line-height:1.03;margin:0 0 14px;color:#39202e}
+    dialog.decline-modal p{font-size:14px;line-height:1.7;color:#6d5c63;margin:0 auto;max-width:365px}
+    .modal-actions{display:grid;gap:11px;margin-top:27px}
+    .modal-actions .btn{width:100%;min-height:49px;font-size:14px}
+    .btn.decline-confirm{background:#fffaf4;border:1px solid #a47b7b;color:#723d48}
+    .btn.decline-confirm:hover:not(:disabled){background:#f9efed}
+    .modal-note{font-size:11px!important;line-height:1.65!important;border-top:1px solid #e9ded5;padding-top:17px;margin-top:23px!important}
+    .declined-message{border:1px solid #bd996f;border-radius:16px;padding:30px 23px;text-align:center;color:#fff5e5;background:#ffffff0f;max-width:410px;margin:0 auto}
+    .declined-message .symbol{font:500 36px/1 'Cormorant Garamond',serif;color:#dfc094;margin-bottom:10px}
+    .declined-message h2{font-size:35px;line-height:1.1;margin:0 0 12px}
+    .declined-message p{margin:0 auto 20px;font-size:13px;line-height:1.7;color:#ead5d9}
     .hidden{display:none!important}
     @media (max-width:850px){.hero-layout{grid-template-columns:1fr;gap:48px}.hero{padding:54px 0 63px}.map-grid{grid-template-columns:1fr}.map-shell,#map{min-height:390px}.feature-grid{grid-template-columns:1fr 1fr}.gift-card{transform:rotate(-3deg)}}
-    @media (max-width:520px){.wrap{width:min(100% - 30px,1140px)}header{padding:17px 0}.brand b{font-size:21px}.top-pill{display:none}nav{gap:12px}nav a{font-size:12px}.hero{padding:49px 0 59px}.hero p{font-size:14px}.gift-card{padding:23px;min-height:196px}.card-brand{font-size:19px}.card-bottom{font-size:8px}.feature-grid{grid-template-columns:1fr}.section{padding:59px 0}.location-controls{align-items:stretch;flex-direction:column}.city-select,select,.location-controls .btn{width:100%}.refusal{flex-direction:column;align-items:stretch}.refusal .btn{width:100%}.map-shell,#map{min-height:340px}.map-overlay{padding:20px}}
+    @media (max-width:520px){.wrap{width:min(100% - 30px,1140px)}header{padding:17px 0}.brand b{font-size:21px}.top-pill{display:none}.hero{padding:49px 0 59px}.hero p{font-size:14px}.gift-card{padding:23px;min-height:196px}.card-brand{font-size:19px}.card-bottom{font-size:8px}.feature-grid{grid-template-columns:1fr}.section{padding:59px 0}.location-controls{align-items:stretch;flex-direction:column}.city-select,select,.location-controls .btn{width:100%}.refusal{flex-direction:column;align-items:stretch}.refusal .btn{width:100%}.map-shell,#map{min-height:340px}.map-overlay{padding:20px}.modal-inner{padding:36px 24px 28px}}
     @media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
   </style>
 </head>
@@ -119,57 +135,59 @@
       <div>
         <div class="eyebrow">A little gesture. A lasting memory.</div>
         <h1>More than a gift.<br><i>An experience.</i></h1>
-        <p>A beautiful physical gift card for moments worth remembering. Explore the card and discover where participating locations may accept it.</p>
+        <p>A beautiful physical gift card for moments worth remembering. Discover the card and explore available redemption locations.</p>
         <div class="buttons"><a class="btn cream" href="#places" style="text-decoration:none;display:inline-flex;align-items:center">Explore locations ↗</a><button class="btn outline-light" id="decline-hero" type="button">Refuse this gift card</button></div>
       </div>
-      <div class="card-outer" id="card-preview">
-        <div class="gift-card" role="img" aria-label="Illustration of a burgundy and gold physical gift card marked demo, not valid"><div class="orb" aria-hidden="true"></div><div class="card-brand">The Journey of Love</div><div class="card-mid">The gift of<br><em>beautiful moments.</em></div><div class="card-bottom"><span>Experiences · Discover · Enjoy</span><span class="demo-stamp">DEMO · NOT VALID</span></div></div>
-        <p class="card-caption">Visual mockup only · Physical gift card issued in person</p>
+      <div class="card-outer" id="card-display">
+        <div class="gift-card" role="img" aria-label="The Journey of Love burgundy and gold gift card design"><div class="orb" aria-hidden="true"></div><div class="card-brand">The Journey of Love</div><div class="card-mid">The gift of<br><em>beautiful moments.</em></div><div class="card-bottom"><span>Experiences · Discover · Enjoy</span><span class="card-seal">PHYSICAL GIFT CARD</span></div></div>
+        <p class="card-caption">Present your original physical card when redeeming with a participating partner.</p>
       </div>
-      <div class="card-outer hidden" id="card-declined" aria-live="polite" style="text-align:center;color:#fff4e9"><div style="font:500 36px 'Cormorant Garamond',serif">Gift card declined</div><p style="margin:auto auto 16px;max-width:290px">Your choice has been reflected on this page.</p><button type="button" class="btn cream" id="undo-decline">Show gift card again</button></div>
+      <div class="card-outer hidden" id="card-declined" aria-live="polite"><div class="declined-message"><div class="symbol" aria-hidden="true">✦</div><h2>Your choice is respected.</h2><p>You've declined the online gift-card display on this device. Your physical card has not been cancelled, and no message has been sent to its issuer.</p><button type="button" class="btn cream" id="undo-decline">Change my mind</button></div></div>
     </div></section>
     <section class="section"><div class="wrap">
       <div class="section-kicker">How it works</div><h2>A simple, thoughtful gift.</h2>
-      <p class="section-lead">No online checkout. The card is physical, purchased in person with cash. This page exists only to showcase it and help people find where it may be used.</p>
+      <p class="section-lead">A physical gift, purchased in person and enjoyed at participating locations. No online payment or account required.</p>
       <div class="feature-grid">
         <article class="feature"><div class="number">01</div><h3>Receive the card</h3><p>A physical gift card is purchased and given in person.</p></article>
-        <article class="feature"><div class="number">02</div><h3>Discover places</h3><p>Browse participating partners on the map, with optional device location.</p></article>
-        <article class="feature"><div class="number">03</div><h3>Enjoy the moment</h3><p>Present the physical gift card at a participating location, subject to their rules.</p></article>
+        <article class="feature"><div class="number">02</div><h3>Discover places</h3><p>Discover partner locations on the map, with optional device location.</p></article>
+        <article class="feature"><div class="number">03</div><h3>Enjoy the moment</h3><p>Present the original physical card at an available partner location, subject to card and venue terms.</p></article>
       </div>
     </div></section>
     <section class="section places-section" id="places"><div class="wrap">
-      <div class="places-head"><div><div class="section-kicker">Explore</div><h2>Where can I use it?</h2><p class="section-lead" style="margin-bottom:0">Browse a city or choose to locate yourself. Your GPS position is used on your device for the map and distance calculations, not sent to our analytics.</p></div><span class="tag">◌ Demonstration locations only</span></div>
+      <div class="places-head"><div><div class="section-kicker">Explore</div><h2>Where can I use it?</h2><p class="section-lead" style="margin-bottom:0">Browse by city or use your location to explore the map. Your precise location stays in your browser and is not sent to our analytics.</p></div><span class="tag">◌ Location optional</span></div>
       <div class="location-controls">
-        <label class="city-select" for="city-select">Explore a city<select id="city-select"><option value="paris">Paris · demo</option><option value="lyon">Lyon · demo</option><option value="bali">Bali · demo</option></select></label>
+        <label class="city-select" for="city-select">Explore a city<select id="city-select"><option value="paris">Paris</option><option value="lyon">Lyon</option><option value="bali">Bali</option></select></label>
         <button class="btn" id="use-location" type="button">◎ Find places near me</button>
         <button class="btn outline" id="skip-location" type="button">No thanks, browse the map</button>
       </div>
       <div class="map-grid">
-        <div class="map-shell"><div id="map" aria-label="Interactive map of demonstration gift card partner locations"></div>
-          <div class="map-overlay" id="map-overlay"><div class="map-symbol" aria-hidden="true">⌖</div><h3>Places, thoughtfully found.</h3><p>Open the interactive map to browse example places. Location access is optional.</p><button class="btn" type="button" id="open-map">View the map</button></div>
+        <div class="map-shell"><div id="map" aria-label="Interactive map for exploring gift card locations"></div>
+          <div class="map-overlay" id="map-overlay"><div class="map-symbol" aria-hidden="true">⌖</div><h3>Places, thoughtfully found.</h3><p>Explore the map by city or find your current location. Location permission is always optional.</p><button class="btn" type="button" id="open-map">View the map</button></div>
         </div>
-        <aside class="places-panel"><h3>Example locations</h3><p>Illustrative venues for design testing — not real redemption partners.</p><div id="venues" aria-live="polite"></div><p class="status" id="location-status" role="status"></p></aside>
+        <aside class="places-panel"><h3>Partner locations</h3><p>Confirmed places where participating gift cards can be redeemed will appear here.</p><div id="venues" aria-live="polite"></div><p class="status" id="location-status" role="status"></p></aside>
       </div>
-      <div class="privacy"><strong>Location and privacy.</strong> “Find places near me” asks your browser for permission and calculates distances locally. You can refuse GPS access and still browse the map. No exact coordinates are sent to Plausible or to the site operator by this demo. Opening the map loads tiles from OpenStreetMap, which may infer the displayed area from tile requests. Any future voluntary sharing of exact coordinates with the gift-card team must be presented as a distinct, clearly explained action.</div>
-      <div class="refusal"><div><h3>Don't want this gift card?</h3><p>Refusing the online preview is optional. It doesn't revoke or cancel a physical card.</p></div><button class="btn muted" id="decline-bottom" type="button">Refuse this gift card</button></div>
+      <div class="privacy"><strong>Your location stays your choice.</strong> “Find places near me” requests browser permission solely to center the map and calculate distances on your device. No precise coordinates are sent to us or to Plausible. You can use the map without GPS. OpenStreetMap receives requests for the map tiles needed to display your selected area.</div>
+      <div class="refusal"><div><h3>Prefer not to accept this gift?</h3><p>You can decline the online display at any time. Physical card cancellation must be arranged separately with its issuer.</p></div><button class="btn muted" id="decline-bottom" type="button">Refuse this gift card</button></div>
     </div></section>
   </main>
-  <footer><div class="wrap"><div class="brand"><b>The Journey of Love</b><small>Experience gifting</small></div><p>Prototype · No online payments · No live participating locations · No GPS collection</p></div></footer>
-  <dialog id="decline-dialog" aria-labelledby="decline-title"><h3 id="decline-title">Refuse this gift card?</h3><p>You can choose not to accept the offer shown here. This is only a website preview: it does not notify a sender, deactivate a physical card, or process a refund.</p><div class="notice">No payment or account information is involved.</div><div class="buttons" style="margin-top:16px"><button class="btn" type="button" id="confirm-decline">Yes, decline the preview</button><button class="btn outline" type="button" id="cancel-decline">Keep viewing</button></div></dialog>
+  <footer><div class="wrap"><div class="brand"><b>The Journey of Love</b><small>Experience gifting</small></div><p>Physical gift cards · No online payment · Location access optional</p></div></footer>
+  <dialog class="decline-modal" id="decline-dialog" aria-labelledby="decline-title" aria-describedby="decline-explanation"><div class="modal-inner">
+      <button class="modal-close" type="button" id="close-decline" aria-label="Close this window">×</button>
+      <div class="modal-icon" aria-hidden="true">✦</div>
+      <div class="modal-eyebrow">A personal choice</div>
+      <h3 id="decline-title">Would you like to decline this gift?</h3>
+      <p id="decline-explanation">It's completely okay if this gift isn't for you. You can choose to hide it here, and you can change your mind at any time.</p>
+      <div class="modal-actions">
+        <button class="btn" type="button" id="cancel-decline">Keep my gift</button>
+        <button class="btn decline-confirm" type="button" id="confirm-decline">Decline this gift card</button>
+      </div>
+      <p class="modal-note">Your preference is saved only in this browser. It does not notify the sender, cancel a physical card, or process a refund.</p>
+    </div></dialog>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
   <script>
     'use strict';
-    // REPLACE ALL EXAMPLE ENTRIES WITH VERIFIED, CONTRACTED REDEMPTION LOCATIONS BEFORE LAUNCH.
-    // These are deliberate fictional sample venue labels, not real partner businesses.
-    const LOCATIONS = [
-      {id:1, name:'Demo venue — Central Paris', city:'paris', area:'Paris, city centre', lat:48.8566, lng:2.3522, category:'Experiences'},
-      {id:2, name:'Demo venue — Left Bank', city:'paris', area:'Paris, Left Bank', lat:48.8485, lng:2.3472, category:'Dining'},
-      {id:3, name:'Demo venue — West Paris', city:'paris', area:'Paris, western district', lat:48.8584, lng:2.2945, category:'Wellness'},
-      {id:4, name:'Demo venue — Central Lyon', city:'lyon', area:'Lyon, centre', lat:45.7640, lng:4.8357, category:'Experiences'},
-      {id:5, name:'Demo venue — Vieux Lyon', city:'lyon', area:'Lyon, old town', lat:45.7624, lng:4.8273, category:'Dining'},
-      {id:6, name:'Demo venue — Ubud', city:'bali', area:'Ubud, Bali', lat:-8.5069, lng:115.2625, category:'Wellness'},
-      {id:7, name:'Demo venue — Seminyak', city:'bali', area:'Seminyak, Bali', lat:-8.6913, lng:115.1682, category:'Experiences'}
-    ];
+    // Only add locations after confirming that merchants accept these cards.
+    const LOCATIONS = [];
     const CITY = {paris:{lat:48.8566,lng:2.3522,zoom:12},lyon:{lat:45.7640,lng:4.8357,zoom:12},bali:{lat:-8.6044,lng:115.1995,zoom:10}};
     const $ = (id) => document.getElementById(id);
     let map=null, markers=[], positionMarker=null, positionCircle=null, userCoordinates=null;
@@ -180,15 +198,21 @@
       const city=citySelect.value;
       let items=LOCATIONS.filter(p=>p.city===city);
       if(userCoordinates)items=items.map(p=>({...p,km:haversine(userCoordinates.lat,userCoordinates.lng,p.lat,p.lng)})).sort((a,b)=>a.km-b.km);
-      $('venues').replaceChildren();
+      const container=$('venues');container.replaceChildren();
+      if(!items.length){
+        const empty=document.createElement('div');empty.className='empty-venues';
+        const symbol=document.createElement('div');symbol.className='empty-symbol';symbol.textContent='⌖';symbol.setAttribute('aria-hidden','true');
+        const title=document.createElement('strong');title.textContent='Locations coming soon';
+        const detail=document.createElement('p');detail.textContent='We haven’t published any confirmed partners in this area yet. Please check back before planning a visit.';
+        empty.append(symbol,title,detail);container.append(empty);return;
+      }
       for(const loc of items){
         const btn=document.createElement('button');btn.type='button';btn.className='venue';
         const title=document.createElement('strong');title.textContent=loc.name;
-        const tag=document.createElement('span');tag.className='demo';tag.textContent='DEMO';
         const sub=document.createElement('span');sub.textContent=loc.area+' · '+loc.category+(Number.isFinite(loc.km)?' · '+loc.km.toFixed(1)+' km away':'');
-        btn.append(tag,title,sub);
+        btn.append(title,sub);
         btn.addEventListener('click',async()=>{await ensureMap();const m=markers.find(m=>m.location.id===loc.id);if(m){map.setView([loc.lat,loc.lng],15);m.marker.openPopup();}});
-        $('venues').append(btn);
+        container.append(btn);
       }
     }
     async function ensureMap(){
@@ -203,11 +227,11 @@
       for(const loc of LOCATIONS.filter(p=>p.city===citySelect.value)){
         const marker=L.marker([loc.lat,loc.lng]).addTo(map);
         const popup=document.createElement('div');const strong=document.createElement('strong');strong.textContent=loc.name;
-        const note=document.createElement('p');note.textContent='Demo location only — not valid for gift-card redemption.';note.style.margin='5px 0';
+        const note=document.createElement('p');note.textContent='Present the physical card and confirm redemption details with the partner.';note.style.margin='5px 0';
         popup.append(strong,note);marker.bindPopup(popup);markers.push({marker,location:loc});
       }
     }
-    async function browseMap(){try{await ensureMap();const c=CITY[citySelect.value];map.setView([c.lat,c.lng],c.zoom);status.textContent='Showing demonstration venues. GPS is not needed.';trackAggregateEvent('Gift Card Map Opened');}catch(e){/* status updated by ensureMap */}}
+    async function browseMap(){try{await ensureMap();const c=CITY[citySelect.value];map.setView([c.lat,c.lng],c.zoom);status.textContent='Map opened. Confirmed partner locations will appear when available.';trackAggregateEvent('Gift Card Map Opened');}catch(e){/* status updated by ensureMap */}}
     $('open-map').addEventListener('click',browseMap);
     $('skip-location').addEventListener('click',browseMap);
     citySelect.addEventListener('change',()=>{venueList();if(map){const c=CITY[citySelect.value];map.setView([c.lat,c.lng],c.zoom);updateMarkers();}});
@@ -225,21 +249,32 @@
         }catch(e){/* status updated by ensureMap */}
       },(error)=>{status.textContent=error.code===1?'Location access declined. You can still browse by city.':'Could not retrieve your location. Try browsing by city.';},{enableHighAccuracy:true,timeout:15000,maximumAge:0});
     });
-    const declineDialog=$('decline-dialog');
-    const askDecline=()=>declineDialog.showModal();
-    $('decline-hero').addEventListener('click',askDecline);$('decline-bottom').addEventListener('click',askDecline);
+    const declineDialog=$('decline-dialog'), PREF_KEY='journey-of-love-gift-choice-v1';
+    function setDeclined(declined){
+      $('card-display').classList.toggle('hidden',declined);
+      $('card-declined').classList.toggle('hidden',!declined);
+      for(const id of ['decline-hero','decline-bottom']){
+        const button=$(id);button.disabled=declined;
+        button.textContent=declined?'Gift card declined':'Refuse this gift card';
+      }
+    }
+    try{setDeclined(localStorage.getItem(PREF_KEY)==='declined');}catch(e){setDeclined(false);}
+    const askDecline=()=>{if(!declineDialog.open)declineDialog.showModal();};
+    $('decline-hero').addEventListener('click',askDecline);
+    $('decline-bottom').addEventListener('click',askDecline);
     $('cancel-decline').addEventListener('click',()=>declineDialog.close());
+    $('close-decline').addEventListener('click',()=>declineDialog.close());
     $('confirm-decline').addEventListener('click',()=>{
-      declineDialog.close();$('card-preview').classList.add('hidden');$('card-declined').classList.remove('hidden');
-      $('decline-hero').textContent='Gift card declined';$('decline-hero').disabled=true;
-      $('decline-bottom').textContent='Gift card declined';$('decline-bottom').disabled=true;
-      trackAggregateEvent('Gift Card Preview Declined');
+      declineDialog.close();
+      try{localStorage.setItem(PREF_KEY,'declined');}catch(e){/* local storage may be unavailable */}
+      setDeclined(true);
+      trackAggregateEvent('Gift Card Declined');
       $('card-declined').scrollIntoView({behavior:'smooth',block:'center'});
     });
     $('undo-decline').addEventListener('click',()=>{
-      $('card-preview').classList.remove('hidden');$('card-declined').classList.add('hidden');
-      $('decline-hero').textContent='Refuse this gift card';$('decline-hero').disabled=false;
-      $('decline-bottom').textContent='Refuse this gift card';$('decline-bottom').disabled=false;
+      try{localStorage.removeItem(PREF_KEY);}catch(e){/* local storage may be unavailable */}
+      setDeclined(false);
+      trackAggregateEvent('Gift Card Decline Reversed');
     });
     venueList();
   </script>
